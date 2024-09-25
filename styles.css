@@ -21,107 +21,6 @@ h1 {
     letter-spacing: 5px;
 }
 
-.timeline {
-    position: relative;
-    padding: 20px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: #333;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
-}
-
-.timeline-item {
-    position: relative;
-    width: 50%;
-}
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -10px;
-    background-color: black;
-    border: 2px solid #333;
-    top: 30px;
-    border-radius: 50%;
-    z-index: 1;
-    transform: rotate(45deg);
-}
-
-.timeline-content.right2 {
-    margin-left: 10px; /* This will push the content box to the right side */
-}
-.timeline-content.left2 {
-    margin-left: auto; /* This will push the content box to the right side */
-    margin-right: 10px;
-}
-
-.left {
-    text-align: right;
-    left: 0;
-}
-
-.right {
-    text-align: left;
-    left: 50%;
-}
-
-.right::after {
-    left: -10px;
-}
-
-.timeline-content {
-    max-width: 400px;
-    padding: 20px 30px;
-    position: relative;
-    border-radius: 6px;
-}
-
-.timeline-content h2 {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-}
-
-.timeline-content h3 {
-    font-size: 1em;
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-@media screen and (max-width: 600px) {
-    .timeline::before {
-        left: 31px;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-
-    .timeline-item::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-    }
-
-    .left::after, .right::after {
-        left: 21px;
-    }
-
-    .right {
-        left: 0%;
-    }
-}
 
 /* Header */ 
 .header {
@@ -129,7 +28,7 @@ h1 {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -217,6 +116,7 @@ h1 {
     }
     .logo {
         margin-left: 20px;
+        font-size: 20px;
     }
 
     .navbar {
@@ -226,6 +126,9 @@ h1 {
         width: 250px;
         height: 100vh;
         background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: all 0.3s ease-in-out;
     }
 
@@ -269,7 +172,7 @@ h1 {
 .hero-image {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100vh;
     object-fit: cover;
     z-index: 1;
@@ -309,6 +212,33 @@ h1 {
     text-align: center;
 }
 
+.btn{
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    font-weight: bold;
+    color: #000;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
 @keyframes fadeInOverlay {
     from { background-color: rgba(0, 0, 0, 0); }
     to { background-color: rgba(0, 0, 0, 0.5); }
@@ -346,25 +276,19 @@ h1 {
     margin-top: 20px; /* Space above buttons */
 }
 
-.hero button {
-    padding: 10px 20px;
-    margin: 10px 5px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    border: none;
-    background-color: #fff;
-    font-weight: bold;
-    color: #000;
-    border-radius: 50px;
-    transition: background-color 0.3s;
+.glow-text {
+    animation: glow 5s ease-in-out infinite;
 }
 
-.hero button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background-color: #555;
-    transform: scale(1.05);
+@keyframes glow {
+    0%, 100% {
+        text-shadow: none;
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(0, 123, 255, 0.8),
+                     0 0 20px rgba(0, 123, 255, 0.8),
+                     0 0 30px rgba(0, 123, 255, 0.8);
+    }
 }
 
 /* Responsive Design */
@@ -389,3 +313,196 @@ h1 {
     }
 }
 
+
+/* About me */
+
+.about{
+    width: 100%;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.about .container {
+    width: 70%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #333;
+    margin: 20px auto 0;
+}
+
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-text p {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Experience */ 
+.experience {
+    margin-bottom: 30px;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 50px; /* Outer width of the box */
+    height: 50px; /* Outer height of the box */
+    top: 30px;
+    padding: 10px; /* Space between the border and the image */
+    background-image: url('workbag.png'); /* Replace with your image URL */
+    background-color: #fff;
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box; /* Ensures padding is included in the width/height */
+    border: 2px solid #333; /* Inner border */
+    border-radius: 0; /* Removed border-radius for rectangular shape */
+    z-index: 1;
+    transform: rotate(45deg); /* Keeps the 45 degrees rotation */
+    transform-origin: center; /* Ensures the rotation is centered */
+    box-shadow: 0 0 0 4px #333; /* Mimics a double border */
+}
+
+.timeline-item.right::after{
+    left: -25px;
+}
+
+.timeline-item.left::after{
+    right: -25px;
+}
+
+
+
+.timeline-content.right2 {
+    margin-left: 25px; /* This will push the content box to the right side */
+}
+.timeline-content.left2 {
+    margin-left: auto; /* This will push the content box to the right side */
+    margin-right: 25px;
+}
+
+.left {
+    text-align: right;
+    left: 0;
+}
+
+.right {
+    text-align: left;
+    left: 50%;
+}
+
+.right::after {
+    left: -10px;
+}
+
+.timeline-content {
+    max-width: 400px;
+    padding: 20px 30px;
+    position: relative;
+    border-radius: 6px;
+}
+
+.timeline-content h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 1em;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline {
+        padding-left: 30px;
+    }
+    .timeline-item {
+        width: 80%;
+        margin-left: 35px;
+    }
+
+    .timeline-content.left2 {
+        margin-left: 25px; /* This will push the content box to the right side */
+        margin-right: 0px;
+    }
+
+    .left {
+        text-align: left;
+        left: 0%;
+    }
+    .left::after {
+        left: -25px;
+    }
+
+    .right {
+        left: 0%;
+    }
+
+    .timeline::before {
+        left: 65px;
+    }
+
+    .timeline-content h2 {
+        font-size: 0.8em;
+
+    }
+    
+    .timeline-content h3 {
+        font-size: 1em;
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+    .timeline-content p {
+        font-size: 0.8em;
+    }
+}
+
+
+.project {
+    margin-top: 100px;
+}
